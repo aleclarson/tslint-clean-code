@@ -166,9 +166,9 @@ module.exports = function(grunt) {
                         src: [
                             '**/*.js',
                             '**/*.json',
-                            '!tests/**',
-                            'tests/TestHelper.js',
-                            'tests/TestHelper.d.ts',
+                            '!__tests__/**',
+                            '__tests__/TestHelper.js',
+                            '__tests__/TestHelper.d.ts',
                             '!references.js'
                         ],
                         dest: 'dist/build'
@@ -194,7 +194,7 @@ module.exports = function(grunt) {
 
         mochaTest: {
             test: {
-                src: ['dist/src/tests/**/*.js']
+                src: ['dist/src/__tests__/**/*.js']
             }
         },
 
@@ -228,7 +228,7 @@ module.exports = function(grunt) {
                 files: {
                     src: [
                         'src/**/*.ts',
-                        '!src/tests/**'
+                        '!src/__tests__/**'
                     ]
                 }
             },
@@ -236,13 +236,13 @@ module.exports = function(grunt) {
                 options: {
                     configuration: Object.assign({},
                         grunt.file.readJSON("tslint.json", { encoding: 'UTF-8' }),
-                        grunt.file.readJSON("src/tests/tslint.json", { encoding: 'UTF-8' })
+                        grunt.file.readJSON("src/__tests__/tslint.json", { encoding: 'UTF-8' })
                     ),
                 },
                 files: {
                     src: [
-                        'src/tests/**/*.ts',
-                        '!src/tests/references.ts'
+                        'src/__tests__/**/*.ts',
+                        '!src/__tests__/references.ts'
                     ]
                 }
             }
@@ -252,7 +252,7 @@ module.exports = function(grunt) {
             scripts: {
                 files: [
                     './src/**/*.ts',
-                    './tests/**/*.ts'
+                    './__tests__/**/*.ts'
                 ],
                 tasks: [
                     'ts',
@@ -449,7 +449,7 @@ module.exports = function(grunt) {
 
             var ruleFile = camelCase(ruleName) + 'Rule';
             var sourceFileName = './src/' + ruleFile + '.ts';
-            var testFileName = './src/tests/' + ruleFile.charAt(0).toUpperCase() + ruleFile.substr(1) + 'Tests.ts';
+            var testFileName = './src/__tests__/' + ruleFile.charAt(0).toUpperCase() + ruleFile.substr(1) + 'Tests.ts';
             var walkerName = ruleFile.charAt(0).toUpperCase() + ruleFile.substr(1) + 'Walker';
 
             var ruleTemplateText = grunt.file.read('./templates/rule.snippet', {encoding: 'UTF-8'});
