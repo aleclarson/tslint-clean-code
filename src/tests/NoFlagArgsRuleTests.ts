@@ -8,7 +8,7 @@ import { FAILURE_STRING } from '../noFlagArgsRule';
 describe('noFlagArgsRule', (): void => {
     const ruleName: string = 'no-flag-args';
 
-    context('Anonymous Function', () => {
+    describe('Anonymous Function', () => {
         it('should pass on string parameter', (): void => {
             const script: string = `
             function (arg1: string) {
@@ -37,7 +37,7 @@ describe('noFlagArgsRule', (): void => {
         });
     });
 
-    context('Anonymous Function', () => {
+    describe('Anonymous Function', () => {
         it('should pass on string parameter', (): void => {
             const script: string = `
             function (arg1: string) {
@@ -66,7 +66,7 @@ describe('noFlagArgsRule', (): void => {
         });
     });
 
-    context('Named Function', () => {
+    describe('Named Function', () => {
         it('should pass on string parameter', (): void => {
             const script: string = `
             function doStuff(stuff: string) {
@@ -98,7 +98,7 @@ describe('noFlagArgsRule', (): void => {
         });
     });
 
-    context('Arrow Function', () => {
+    describe('Arrow Function', () => {
         it('should pass on string parameter', (): void => {
             const script: string = `
                     (arg1: string) => {
@@ -127,7 +127,7 @@ describe('noFlagArgsRule', (): void => {
         });
     });
 
-    context('Class Methods', () => {
+    describe('Class Methods', () => {
         it('should pass on setter method', (): void => {
             const script: string = `
             class MyClass {

@@ -7,7 +7,7 @@ import { FAILURE_MIN_STRING } from '../idLengthRule';
 describe('idLengthRule', (): void => {
     const ruleName: string = 'id-length';
 
-    context('default options', () => {
+    describe('default options', () => {
         it('should pass on identifiers with length 2', (): void => {
             const script: string = `
                 let x1;
@@ -70,14 +70,14 @@ describe('idLengthRule', (): void => {
         });
     });
 
-    context('change options', () => {
+    describe('change options', () => {
         let options: any[];
         beforeEach((): void => {
             options = [true];
         });
 
-        context('object option', () => {
-            context('exceptions', () => {
+        describe('object option', () => {
+            describe('exceptions', () => {
                 beforeEach((): void => {
                     options = [
                         true,
@@ -98,7 +98,7 @@ describe('idLengthRule', (): void => {
                 });
             });
 
-            context('min = 0', () => {
+            describe('min = 0', () => {
                 beforeEach((): void => {
                     options = [
                         true,
@@ -120,7 +120,7 @@ describe('idLengthRule', (): void => {
             });
         });
 
-        context('array option (exception)', () => {
+        describe('array option (exception)', () => {
             beforeEach((): void => {
                 options = [true, ['x', 'y', 'f', 'c']];
             });
@@ -136,8 +136,8 @@ describe('idLengthRule', (): void => {
             });
         });
 
-        context('number option (minimum)', () => {
-            context('option = 0', () => {
+        describe('number option (minimum)', () => {
+            describe('option = 0', () => {
                 beforeEach((): void => {
                     options = [true, 0];
                 });

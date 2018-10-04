@@ -188,7 +188,7 @@ describe('noMapWithoutUsageRule', (): void => {
         ]);
     });
 
-    context('React', () => {
+    describe('React', () => {
         it('should pass on JavaScript Expression within TSX', () => {
             const file: string = 'test-data/NoMapWithoutUsage/JavaScriptExpressionInReact.tsx';
             TestHelper.assertViolations(ruleName, file, []);

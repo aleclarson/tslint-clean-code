@@ -215,8 +215,8 @@ describe('minClassCohesionRule', (): void => {
         TestHelper.assertViolations(ruleName, script, []);
     });
 
-    context('reading options', (): void => {
-        context('90% cohesion', (): void => {
+    describe('reading options', (): void => {
+        describe('90% cohesion', (): void => {
             let options: any[];
 
             beforeEach((): void => {
@@ -255,7 +255,7 @@ describe('minClassCohesionRule', (): void => {
             });
         });
 
-        context('80% cohesion', (): void => {
+        describe('80% cohesion', (): void => {
             let options: any[];
 
             beforeEach((): void => {

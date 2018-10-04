@@ -10,6 +10,7 @@
   },
   "devDependencies": {
     "@types/chai": "^4.1.2",
+    "@types/jest": "^23.3.3",
     "@types/mocha": "^2.2.48",
     "@types/node": "^9.4.6",
     "@types/react": "^15.6.14",
@@ -22,10 +23,12 @@
     "grunt-mocha-test": "0.13.2",
     "grunt-ts": "^6.0.0-beta.17",
     "grunt-tslint": "^5.0.1",
+    "jest": "^23.6.0",
     "load-grunt-tasks": "3.2.0",
     "mocha": "2.2.5",
     "strip-indent": "^2.0.0",
     "time-grunt": "1.2.1",
+    "ts-jest": "^23.1.4",
     "tslint": "5.1.0",
     "tslint-microsoft-contrib": "^5.0.1",
     "typescript": "^2.4.2",
@@ -56,5 +59,11 @@
   "bugs": {
     "url": "https://github.com/Glavin001/tslint-clean-code/issues"
   },
-  "homepage": "https://github.com/Glavin001/tslint-clean-code#readme"
+  "homepage": "https://github.com/Glavin001/tslint-clean-code#readme",
+  "jest": {
+    "preset": "ts-jest",
+    "testPathIgnorePatterns": [
+      "TestHelper.ts"
+    ]
+  }
 }

@@ -8,7 +8,7 @@ import { FAILURE_CLASS_STRING, FAILURE_FILE_STRING, FAILURE_BLOCK_STRING } from 
 describe('newspaperOrderRule', (): void => {
     const ruleName: string = 'newspaper-order';
 
-    context('ClassDeclaration', () => {
+    describe('ClassDeclaration', () => {
         it('should pass on empty class', (): void => {
             const script: string = `
             class EmptyClass {
@@ -327,7 +327,7 @@ describe('newspaperOrderRule', (): void => {
         });
     });
 
-    context('SourceFile', () => {
+    describe('SourceFile', () => {
         it('should pass on correctly ordered functions', (): void => {
             const script: string = `
             function firstMethod(): number {
@@ -461,7 +461,7 @@ describe('newspaperOrderRule', (): void => {
         });
     });
 
-    context('Block', () => {
+    describe('Block', () => {
         it('should pass on correctly ordered functions within named function', (): void => {
             const script: string = `
                     function doStuff() {

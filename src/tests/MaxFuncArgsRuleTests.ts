@@ -7,7 +7,7 @@ import { FAILURE_STRING, FAILURE_RECOMMENDATION_STRING, DEFAULT_MAX_ARGS_LENGTH 
 describe('maxFuncArgsRule', (): void => {
     const ruleName: string = 'max-func-args';
 
-    context('Anonymous Function', () => {
+    describe('Anonymous Function', () => {
         const maxLength = DEFAULT_MAX_ARGS_LENGTH;
 
         it('should pass on function with 0 arguments', (): void => {
@@ -38,7 +38,7 @@ describe('maxFuncArgsRule', (): void => {
         });
     });
 
-    context('Arrow Function', () => {
+    describe('Arrow Function', () => {
         const maxLength = DEFAULT_MAX_ARGS_LENGTH;
 
         it('should pass on function with 0 arguments', (): void => {
@@ -69,7 +69,7 @@ describe('maxFuncArgsRule', (): void => {
         });
     });
 
-    context('Class method', () => {
+    describe('Class method', () => {
         const maxLength = DEFAULT_MAX_ARGS_LENGTH;
 
         it('should pass on function with 0 arguments', (): void => {

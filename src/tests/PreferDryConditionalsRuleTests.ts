@@ -140,10 +140,10 @@ describe('preferDryConditionalsRule', (): void => {
         ]);
     });
 
-    context('options', () => {
+    describe('options', () => {
         let options: any[] = [true];
 
-        context('threshold = 3', () => {
+        describe('threshold = 3', () => {
             beforeEach(() => {
                 options = [true, 3];
             });
