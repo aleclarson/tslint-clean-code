@@ -63,6 +63,32 @@ describe('noCommentedOutCodeRule', (): void => {
         TestHelper.assertViolations(ruleName, script, []);
     });
 
+    it('should pass on TODO-like comments', (): void => {
+        const script: string = `
+        // TODO: foo
+        // NOTE: foo
+        // Note: foo
+        // XXX: foo + bar
+        // xxx: foo + bar
+        // FIXME(foo): bar
+        // FIXME({foo: bar})
+        `;
+        TestHelper.assertViolations(ruleName, script, [
+            noCommentedOutCodeError({
+                character: 9,
+                line: 4,
+            }),
+            noCommentedOutCodeError({
+                character: 9,
+                line: 6,
+            }),
+            noCommentedOutCodeError({
+                character: 9,
+                line: 8,
+            }),
+        ]);
+    });
+
     it('should pass on code with inline comments', (): void => {
         const script: string = `
         const obj = {
@@ -90,16 +116,20 @@ describe('noCommentedOutCodeRule', (): void => {
         `;
 
         TestHelper.assertViolations(ruleName, script, [
-            {
-                failure: 'No commented out code.',
-                name: 'file.ts',
-                ruleName: 'no-commented-out-code',
-                ruleSeverity: 'ERROR',
-                startPosition: {
-                    character: 13,
-                    line: 2,
-                },
-            },
+            noCommentedOutCodeError({
+                character: 13,
+                line: 2,
+            }),
         ]);
     });
 });
+
+function noCommentedOutCodeError(startPosition: TestHelper.FailurePosition): TestHelper.ExpectedFailure {
+    return {
+        failure: 'No commented out code.',
+        name: 'file.ts',
+        ruleName: 'no-commented-out-code',
+        ruleSeverity: 'ERROR',
+        startPosition,
+    }
+}
